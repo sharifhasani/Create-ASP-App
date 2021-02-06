@@ -10,6 +10,7 @@ namespace Create_ASP_App.Utility.FileUtility
         {
             try
             {
+                path = Path.Join(Directory.GetCurrentDirectory(), "wwwroot", path);
                 using var stream = new FileStream(path, FileMode.Create);
                 file.CopyTo(stream);
                 return true;
@@ -24,6 +25,7 @@ namespace Create_ASP_App.Utility.FileUtility
         {
             try
             {
+                filePath = Path.Join(Directory.GetCurrentDirectory(), "wwwroot", filePath);
                 if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
@@ -41,6 +43,7 @@ namespace Create_ASP_App.Utility.FileUtility
         {
             try
             {
+                path = Path.Join(Directory.GetCurrentDirectory(), "wwwroot", path);
                 if (!DeleteFile(path))
                 {
                     throw new FileNotFoundException();
